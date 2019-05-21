@@ -1,11 +1,50 @@
-body {
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* set map, body, and html to 100% of the screen size */
-  #map,
-  body,
-  html {
-    height: 100%;
-  }
+/* body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+
+#fit {
+    display: block;
+    position: relative;
+    margin: 0px auto;
+    width: 50%;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    background: #ee8a65;
+    }
+     */
+
+
+  /* body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; } */
+/* #header .item {
+  padding: 0 23px;
+}
+#header .bt-menu {
+  float: left;
+  min-width: 115px;
+  height: 70px;
+  border-right: 1px solid #E6EAEA;
+  color: #202121;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+user agent stylesheet
+div {
+  display: block;
+} */
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+
