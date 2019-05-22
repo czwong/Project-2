@@ -48,3 +48,45 @@ div {
 body { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
+/* #object-position-1 {
+  object-position: right top;
+} */
+
+div {
+  margin: 20px;
+  padding: 0px;
+}
+
+.filters .panel-body {
+  padding: 0;
+}
+
+.filters {
+  margin-top: 10px;
+}
+
+select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  color: #8e979f;
+  outline: none;
+}
+
+#table-area th {
+  text-align: center;
+}
+
+#table-area th:first-child,
+#table-area th:nth-child(2),
+#table-area th:nth-child(6) {
+  min-width: 70px;
+}
+
+.loader {
+  margin-top: 50px;
+}
+
+.margin-top-50 {
+  margin-top: 50px;
+}
