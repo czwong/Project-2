@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body bgcolor="#E6E6FA">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="don't move">
         <a href="#" class="navbar-brand">Project 2</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
@@ -32,31 +32,32 @@
         </div>
     </nav>
 
-    <div>
+    <!-- <div>
         <iframe src="file:///C:/Users/jgome/Desktop/Project-2/map.html" height="400" width="700" align="right" style="border:2px solid black;"></iframe>
-    </div>
+    </div> -->
     <div class="container">
-        <div class="row margin-top-50">
-            <div class="col-md-2">
+        <div class="row margin-top-10">
+            <div class="col-sm-12 col-md-9 col-lg-12">
                 <aside class="filters">
                      <div class="panel panel-default">
                         <div class="panel-heading">Event Filter</div>
                          <div calss="panel-body">
                             <form>
-                                 <div class="form-group">
+                                <div class="form-group">
                                     <ul class="list-group" id="filters">
                                         <li class="filter list-group-item">
-                                            <lable for="column">Choose Event</lable>
+                                            <lable for="column">Choose Team</lable>
                                             <select id="dataSet">
-                                                <option value="datetime" selected="selected">Date/time</option>
-                                                <option value="sports">Sports</option>
-                                                <option value="concerts">Concerts</option>
+                                                <option selected="selected">Raiders</option>
+                                                <option value="sports">Rams</option>
                                             </select>
-                                            <lable for="#">Enter Value</lable>
+                                            <lable for="#">Enter Date</lable>
                                             <input class="form-control" id="input" type="text" placeholder="01/01/2019">
                                         </li>
                                     </ul>
                                 </div>
+                                <button id="filter-btn" type="submit" class="btn btn-default">Filter Table</button>
+                                <button id="clear-btn" type="submit" class="btn btn-default">Clear Filter</button>
                             </form>
                          </div>
                     </div>
@@ -65,17 +66,30 @@
         </div>
     </div>
     <div>
+        <div>
+            <iframe src="file:///C:/Users/jgome/Desktop/Project-2/map.html" height="400" width="700" align="right" style="border:2px solid black;"></iframe>
+        </div>
         <p>
             <strong>
-            This map shows your teams matches from the season 0f 2019. Using the search bar</br>
+            This map shows your teams matches from the season of 2019. Using the search bar</br>
             input the team you want to follow the map will then give you the following information</br>
             on each marker.
             <ol>
                 <li>Venue</li>
                 <li>Price range</li>
                 <li>Popularity of event</li>
-            </ol></strong>
+            </ol>
+            the graphs below will show how popular the event is compaired to others at the time</br>
+            </strong>
         </p>
+    </div>
+    <div class="row align-items-end">
+        <div class="col">
+            graph 1
+        </div>
+        <div class="col">
+            graph 2
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -83,6 +97,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="static/js/app.js"></script>
 </body>
 
 </html>
