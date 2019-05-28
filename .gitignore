@@ -121,6 +121,7 @@ venv.bak/
 dmypy.json
 
 # Pyre type checker
+<<<<<<< HEAD
 .pyre/
 
 # ignore files that might contain API keys, passwords, etc
@@ -130,3 +131,6 @@ config.py
 
 # ignore MacOS file
 .DS_Store
+=======
+.pyre/
+>>>>>>> master

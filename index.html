@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="don't move">
+        <a href="#" class="navbar-brand">Project 2</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Statistic Charts</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <aside class="filters">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Event Filter</div>
+                        <div calss="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <ul class="list-group" id="filters">
+                                        <li class="filter list-group-item">
+                                            <lable for="column">Choose Team</lable>
+                                            <select id="dataSet">
+                                                <option selected="selected">Raiders</option>
+                                                <option value="sports">Rams</option>
+                                            </select>
+                                            <lable for="#">Enter Date</lable>
+                                            <input class="form-control" id="input" type="text" placeholder="01/01/2019"><br>
+                                            <button id="filter-btn" type="submit" class="btn btn-default">Filter Table</button>
+                                            <button id="clear-btn" type="submit" class="btn btn-default">Clear Filter</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-lg-6">
+                <p>
+                    <strong>
+                    This map shows your teams matches from the season of 2019. Using the search bar</br>
+                    input the team you want to follow the map will then give you the following information</br>
+                    on each marker.
+                    <ol>
+                        <li>Venue</li>
+                        <li>Price range</li>
+                        <li>Popularity of event</li>
+                    </ol>
+                    the graphs below will show how popular the event is compaired to others at the time</br>
+                    </strong>
+                </p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <iframe src="file:///C:/Users/jgome/Desktop/Project-2/map.html" height="400" width="700" align="right" style="border:2px solid black;"></iframe>
+        </div>
+    </div>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="static/js/app.js"></script> -->
+</body>
+
+</html>
