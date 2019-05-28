@@ -8,8 +8,6 @@
     <title>Project 2</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,12 +27,11 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <aside class="filters">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Event Filter</div>
                         <div calss="panel-body">
                             <form>
                                 <div class="form-group">
@@ -57,7 +54,7 @@
                     </div>
                 </aside>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <p>
                     <strong>
                     This map shows your teams matches from the season of 2019. Using the search bar</br>
@@ -75,17 +72,9 @@
         </div>
         
         <div class="row">
-            <iframe src="file:///C:/Users/jgome/Desktop/Project-2/map.html" height="400" width="700" align="right" style="border:2px solid black;"></iframe>
+            <iframe src="Map/map.html" height="500px" width="100%" style="border:2px solid black;"></iframe>
         </div>
     </div>
-
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="static/js/app.js"></script> -->
 </body>
 
 </html>
