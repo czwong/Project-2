@@ -33,5 +33,5 @@ def index():
     return render_template('file:///C:/Users/jgome/Desktop/Project-2/landing.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
