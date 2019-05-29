@@ -60,15 +60,14 @@ def api_filter():
     if not (id):
         return page_not_found(404)
     
-query = query[:-4] + ';'
+    query = query[:-4] + ';'
 
-conn = sqlite3.connect('teams.db')
-conn.row_factory = dict_factory
-cur = conn.cursor()
+    conn = sqlite3.connect('teams.db')
+    conn.row_factory = dict_factory
+    cur = conn.cursor()
 
-results = cur.execute(query, to_filter).fetchall()
-
-return jsonify(results)
+    results = cur.execute(query, to_filter).fetchall()
+    return jsonify(results)
 
 if __name__ == '__main__':
     app.run()
