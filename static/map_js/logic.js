@@ -40,13 +40,12 @@ function createMap(marker) {
     return myMap;
 }
 
-var today = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
-var page = 500;
+var team = localStorage.getItem("x");
 
-url = `https://api.seatgeek.com/2/events?client_id=${client_id}&datetime_utc.gte=${today}&type=nfl&sort=datetime_utc.asc&per_page=${page}`;
+url = `/games/` + `${team}`
 
 d3.json(url, function (data) {
-    var events = data.events;
+    var events = data;
 
     var eventMarker = [];
 
@@ -60,11 +59,11 @@ d3.json(url, function (data) {
     for (var i = 0; i < events.length; i++) {
         var event = events[i];
 
-        var lat = event.venue.location.lat;
-        var lng = event.venue.location.lon;
+        var lat = event[1];
+        var lng = event[2];
 
         eventMarker.push(L.marker([lat, lng], { icon: footballMarker })
-            .bindPopup("<h2 align='center'>Game " + parseInt(i+1) + "<h2><hr><h3>" + event.short_title + "<h3>"));
+            .bindPopup("<h2 align='center'>Game " + parseInt(i+1) + "<h2><hr><h3>" + event[0] + "<h3>"));
     }
 
     var myMap = createMap(eventMarker);
