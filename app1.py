@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -73,7 +72,6 @@ mydb.commit()
 print('------------------------')
 print('--- Job Completed ---')
 
-=======
 # import datetime as dt
 # import numpy as np
 # import pandas as pd
@@ -120,4 +118,3 @@ def index():
 if __name__ == '__main__':
     app.run()
 
->>>>>>> 665c7edc97bceff07387f660df3daa6e3bdb3861
