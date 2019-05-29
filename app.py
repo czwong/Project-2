@@ -18,19 +18,39 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/bellybutton.sqlite"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/data.sqlite"
 db = SQLAlchemy(app)
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root'
-app.config['MYSQL_DB'] = 'MyDB'
+# Reflect an existing database into a new model
+Base = automap_base()
+# Reflect the tables
+Base.prepare(db.engine, reflect=True)
 
-mysql = MySQL(app)
+# Save references to each table
+# Games = Base.classes.games
+# Pricing = Base.classes.pricing
+# Venues = Base.classes.venues
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route("/map")
+def map():
+    """Return the map."""
+    return render_template("Map/map.html")
+
+@app.route("/")
 def index():
-    return render_template('file:///C:/Users/jgome/Desktop/Project-2/landing.html')
+    """Return the homepage."""
+    return render_template("index.html")
+
+# @app.route("/games")
+# def names():
+#     """Return a list of sample names."""
+
+#     # Use Pandas to perform the sql query
+#     games = db.session.query(Games).all()
+#     df = pd.read_sql_query(games, db.session.bind)
+
+#     # Return a list of the column names (sample names)
+#     return jsonify(list(df.columns))
 
 if __name__ == '__main__':
     app.run(debug=True)
