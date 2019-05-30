@@ -1,14 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: lightblue;
-}
-
-.container {
-  padding-right: 5px;
-  padding-left: 5px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .filters {
@@ -18,21 +10,28 @@ body {
 select {
   display: block;
   width: 100%;
-  padding: 8px;
+  padding: 6px;
   color: #8e979f;
   outline: none;
+}
+
+.container-fluid {
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-size: cover;
+  background-image: url('../static/index_images/nfl_background.jpg');
 }
 
 .btn-default:hover{
   border-color:black;
 }
 
-.gamedata {
+#gamedata {
   font-family: "Trebuchet MS", sans-serif;
 }
 
-.boxplot {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 8px;
+g {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }

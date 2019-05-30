@@ -49,13 +49,26 @@ function boxplot(team) {
             name: 'High Price'
         };
 
-        var data = [trace1, trace2, trace3];
+        var data1 = [trace1];
+        var data2 = [trace2];
+        var data3 = [trace3];
 
         var layout = {
-            title: `${team}` + ' Price Range',
+            margin: {
+                t: 10,
+                l: 80,
+                r: 30,
+                b: 20
+            },
+            autosize: false,
+            width: 700,
+            height: 100,
+            plot_bgcolor: '#DCDCDC'
         };
 
-        Plotly.newPlot('boxplot', data, layout)
+        Plotly.newPlot('boxplot1', data1, layout)
+        Plotly.newPlot('boxplot2', data2, layout)
+        Plotly.newPlot('boxplot3', data3, layout)
     });
 }
 
