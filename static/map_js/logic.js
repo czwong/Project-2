@@ -1,72 +1,75 @@
-function createMap(marker) {
-    // Define map layers
-    var outdoormap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
-        accessToken: API_KEY
-    });
+// Define map layers
+var outdoormap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
+    accessToken: API_KEY
+});
 
-    var darkmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
-        accessToken: API_KEY
-    });
+var darkmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
+    accessToken: API_KEY
+});
 
-    var satmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
-        accessToken: API_KEY
-    });
+var satmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
+    accessToken: API_KEY
+});
 
-    // Define a baseMaps object to hold our base layers
-    var baseMaps = {
-        "Outdoor": outdoormap,
-        "Dark": darkmap,
-        "Satelitte": satmap
-    };
+// Define a baseMaps object to hold our base layers
+var baseMaps = {
+    "Outdoor": outdoormap,
+    "Dark": darkmap,
+    "Satelitte": satmap
+};
 
-    var football_events = L.layerGroup(marker);
+var myMap = L.map("map", {
+    center: [37.09, -95.71],
+    zoom: 4,
+    layers: [outdoormap]
+});
 
-    var overlayMaps = {
-        "Football Events": football_events
-    };
+// Create a layer control containing our baseMaps
+L.control.layers(baseMaps, null, {
+    collapsed: false
+}).addTo(myMap);
 
-    var myMap = L.map("map", {
-        center: [37.09, -95.71],
-        zoom: 4,
-        layers: [outdoormap, football_events]
-    });
-
-    // Create a layer control containing our baseMaps
-    // Be sure to add an overlay Layer containing the football events
-    L.control.layers(baseMaps, overlayMaps, {
-        collapsed: false
-    }).addTo(myMap);
-
-    return myMap;
+// Add events to map
+function addEvents(event) {
+    L.LayerGroup(events).addTo(myMap);
 }
 
-var team = localStorage.getItem("x");
+// If selector changes, add new events
+window.addEventListener('storage', function (object) {
+    var team = object.newValue;
 
-url = `/games/` + `${team}`
-
-d3.json(url, function (data) {
-    var events = data;
+    url = `/games/` + `${team}`;
 
     var eventMarker = [];
+    var eventLayer = new L.layerGroup();
 
-    var footballMarker = L.ExtraMarkers.icon({
-        icon: 'fa-football-ball',
-        markerColor: 'blue',
-        shape: 'square',
-        prefix: 'fas'
+    d3.json(url, function (data) {
+        eventLayer.clearLayers();
+
+        var events = data;
+
+        var footballMarker = L.ExtraMarkers.icon({
+            icon: 'fa-football-ball',
+            markerColor: 'blue',
+            shape: 'square',
+            prefix: 'fas'
+        });
+
+        for (var i = 0; i < events.length; i++) {
+            var event = events[i];
+
+            var lat = event.Latitude;
+            var lng = event.Longitude;
+
+            eventMarker.push(new L.marker([lat, lng], { icon: footballMarker })
+                .bindPopup("<h2 align='center'>Game " + parseInt(i + 1) + "<h2><hr><h3>" + event.Event + "<h3>"));
+        }
+
+        console.log(eventMarker);
+        eventLayer.addLayer(eventMarker);
     });
 
-    for (var i = 0; i < events.length; i++) {
-        var event = events[i];
-
-        var lat = event[1];
-        var lng = event[2];
-
-        eventMarker.push(L.marker([lat, lng], { icon: footballMarker })
-            .bindPopup("<h2 align='center'>Game " + parseInt(i+1) + "<h2><hr><h3>" + event[0] + "<h3>"));
-    }
-
-    var myMap = createMap(eventMarker);
+    eventLayer.addTo(myMap);
 
     let counter = 0;
     var start_button = true;
@@ -94,3 +97,4 @@ d3.json(url, function (data) {
         }
     });
 });
+

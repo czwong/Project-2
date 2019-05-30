@@ -42,8 +42,7 @@ function optionChanged(newTeam) {
     footballdata(newTeam);
 }
 
-$('select').on('change', function ( ) {
+$('select').on('change', function () {
     var team = this.value;
-
     localStorage.setItem("x", team);
 });

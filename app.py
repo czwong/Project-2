@@ -7,6 +7,7 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
+from sqlalchemy import or_
 
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
@@ -18,28 +19,19 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 
-import mysql.connector
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/data.sqlite"
+db = SQLAlchemy(app)
 
-mydb = mysql.connector.connect(
- host="127.0.0.1",
- user="root",
- passwd="root",
- database="nfl_project"
-)
+# Reflect an existing database into a new model
+Base = automap_base()
 
-# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/data.sqlite"
-# db = SQLAlchemy(app)
+# Reflect the tables
+Base.prepare(db.engine, reflect=True)
 
-# # Reflect an existing database into a new model
-# Base = automap_base()
-
-# # Reflect the tables
-# Base.prepare(db.engine, reflect=True)
-
-# # Save references to each table
-# Games = Base.classes.games
-# Pricing = Base.classes.pricing
-# Venues = Base.classes.venues
+# Save references to each table
+Games = Base.classes.games
+Pricing = Base.classes.pricing
+Venues = Base.classes.venues
 
 @app.route("/")
 def index():
@@ -48,25 +40,32 @@ def index():
 
 @app.route("/teams")
 def teams():
-   """Return the team list."""
-   mycursor = mydb.cursor()
-   mycursor.execute("SELECT team1 FROM nfl_project.games GROUP BY team1;")
-   myresult = mycursor.fetchall()
-   team_list=[]
-   for teams in myresult:
-       team_list.append(teams)
-   return(jsonify(team_list))
+    teams = db.session.query(Games.team1).distinct()
+
+    # Return a list of the column names (team names)
+    return jsonify(list(teams))
 
 @app.route("/games/<team>")
 def game(team):
-    team_choice = team
-    mycursor = mydb.cursor()
-    mycursor.execute(f"SELECT title, lat, lon from games join venues on games.venue_id=venues.venue_id where team1='{team_choice}' or team2='{team_choice}' order by utcdate;")
-    myresult = mycursor.fetchall()
-    game_list=[]
-    for teams in myresult:
-        game_list.append(teams)
-    return(jsonify(game_list))
+    sel = [
+        Games.title,
+        Venues.lat,
+        Venues.lon,
+    ]
+
+    table = db.session.query(*sel).\
+        join(Venues, Games.venue_id == Venues.venue_id).\
+        filter(or_(Games.team1 == team, Games.team2 == team)).all()
+
+    event_list = []
+    for results in table:
+        events = {}
+        events["Event"] = results[0]
+        events["Latitude"] = results[1]
+        events["Longitude"] = results[2]
+        event_list.append(events)
+
+    return jsonify(event_list)
 
 @app.route("/map")
 def map():
