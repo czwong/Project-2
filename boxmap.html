@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>boxplot</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="plot"></div>
+    <script>
+        var conn = createConnection({
+            user: 'root',
+            password: 'root',
+            server: 'project2', 
+            database: 'nflPproject' 
+        });
+
+                con.connect(function(err) {
+            if (err) throw err;
+            con.query("SELECT team1, team2, low_price, med_price, high_price from games join pricing on games.game_id=pricing.game_id where team1='{team_choice}' or team2='{team_choice}' order by utcdate;", function (err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+            });
+        });
+    </script>
+</body>
+</html>
