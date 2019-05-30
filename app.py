@@ -51,10 +51,13 @@ def game(team):
         Games.title,
         Venues.lat,
         Venues.lon,
+        Pricing.low_price,
+        Pricing.high_price
     ]
 
     table = db.session.query(*sel).\
         join(Venues, Games.venue_id == Venues.venue_id).\
+        join(Pricing, Games.game_id == Pricing.game_id).\
         filter(or_(Games.team1 == team, Games.team2 == team)).all()
 
     event_list = []
@@ -63,6 +66,8 @@ def game(team):
         events["Event"] = results[0]
         events["Latitude"] = results[1]
         events["Longitude"] = results[2]
+        events["Low_price"] = results[3]
+        events["High_price"] = results[4]
         event_list.append(events)
 
     return jsonify(event_list)
@@ -73,7 +78,7 @@ def price(team):
         Games.title,
         Pricing.low_price,
         Pricing.med_price,
-        Pricing.high_price,
+        Pricing.high_price
     ]
 
     table = db.session.query(*sel).\

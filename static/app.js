@@ -5,11 +5,10 @@ function footballdata(team) {
     var football_data = d3.select("#gamedata");
 
     d3.json(url).then(function (response) {
-        // Use `.html("") to clear any existing metadata
+        // Use `.html("") to clear any existing data
         football_data.html("");
 
         football_data.html('<b>Number of Games: </b>' + response.length);
-        //cell.html('<b>Number of Games: </b>' + response.length);
     });
 }
 
@@ -103,11 +102,7 @@ function optionChanged(newTeam) {
     // Fetch new data each time a new team is selected
     footballdata(newTeam);
     boxplot(newTeam);
-}
-
-//d3.select('#refresh-btn').on("click", function () {
-        
-//})
+}   
 
 $('select').on('change', function () {
     var team = this.value;

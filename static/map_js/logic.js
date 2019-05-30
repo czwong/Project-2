@@ -58,7 +58,7 @@ window.addEventListener('storage', function (object) {
             var lng = event.Longitude;
 
             eventMarker.push(new L.marker([lat, lng], { icon: footballMarker })
-                .bindPopup("<h2 align='center'>Game " + parseInt(i + 1) + "<h2><hr><h3>" + event.Event + "<h3>"));
+                .bindPopup("<h2 align='center'>Game " + parseInt(i + 1) + "</h2><hr><h3>" + event.Event + "</h3><ul><li><b>High Price:</b> $" + parseInt(event.High_price) + "</li><li><b>Low Price:</b> $" + parseInt(event.Low_price) + "</li></ul>"));
 
             eventLayer.addLayer(eventMarker[i]);
         }
