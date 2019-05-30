@@ -52,7 +52,7 @@ function boxplot(team) {
         var data = [trace1, trace2, trace3];
 
         var layout = {
-            title: `${team}` + ' Price Range'
+            title: `${team}` + ' Price Range',
         };
 
         Plotly.newPlot('boxplot', data, layout)
