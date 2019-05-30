@@ -1,17 +1,61 @@
 function footballdata(team) {
-    // @TODO: Complete the following function that builds the metadata panel
-    // Use `d3.json` to fetch the metadata for a sample
     var url = "/games/" + `${team}`;
 
-    // Use d3 to select the panel with id of `#sample-metadata`
-    var football_data = d3.select("#footballdata");
+    // Use d3 to select the panel with id of `#gamedata`
+    var football_data = d3.select("#gamedata");
 
     d3.json(url).then(function (response) {
         // Use `.html("") to clear any existing metadata
         football_data.html("");
 
-        var cell = football_data.append("p");
-        cell.html('<b>Number of Games: </b>' + response.length);
+        football_data.html('<b>Number of Games: </b>' + response.length);
+        //cell.html('<b>Number of Games: </b>' + response.length);
+    });
+}
+
+function boxplot(team) {
+    var url = "/prices/" + `${team}`;
+
+    var boxplot = d3.select("#boxplot");
+
+    d3.json(url).then(function (data) {
+        boxplot.html("");
+
+        var low = [];
+        var med = [];
+        var high = [];
+
+        for (var i = 0; i < data.length; i++) {
+            low.push(data[i].Low_price);
+            med.push(data[i].Med_price);
+            high.push(data[i].High_price);
+        }
+
+        var trace1 = {
+            x: low,
+            type: 'box',
+            name: 'Low Price'
+        };
+
+        var trace2 = {
+            x: med,
+            type: 'box',
+            name: 'Med Price'
+        };
+
+        var trace3 = {
+            x: high,
+            type: 'box',
+            name: 'High Price'
+        };
+
+        var data = [trace1, trace2, trace3];
+
+        var layout = {
+            title: `${team}` + ' Price Range'
+        };
+
+        Plotly.newPlot('boxplot', data, layout)
     });
 }
 
@@ -31,6 +75,7 @@ function init() {
       // Use the first sample from the list to build the initial plots
       const firstteam = team_list[0][0];
       footballdata(firstteam);
+      boxplot(firstteam);
   });
 }
 
@@ -38,8 +83,9 @@ function init() {
 init();
 
 function optionChanged(newTeam) {
-    // Fetch new data each time a new sample is selected
+    // Fetch new data each time a new team is selected
     footballdata(newTeam);
+    boxplot(newTeam);
 }
 
 $('select').on('change', function () {

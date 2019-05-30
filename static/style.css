@@ -30,3 +30,9 @@ select {
 .gamedata {
   font-family: "Trebuchet MS", sans-serif;
 }
+
+.boxplot {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 8px;
+}

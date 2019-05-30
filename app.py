@@ -71,13 +71,13 @@ def game(team):
 def price(team):
     sel = [
         Games.title,
-        Pricing.pricing_low,
-        Pricing.pricing_med,
-        Pricing.pricing_high,
+        Pricing.low_price,
+        Pricing.med_price,
+        Pricing.high_price,
     ]
 
     table = db.session.query(*sel).\
-        join(Pricing, Games.game_id == Pricing.pricing_id).\
+        join(Pricing, Games.game_id == Pricing.game_id).\
         filter(or_(Games.team1 == team, Games.team2 == team)).all()
 
     event_pricing = []
