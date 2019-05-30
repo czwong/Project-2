@@ -27,21 +27,6 @@ select {
   border-color:black;
 }
 
-/* 
-#table-area th {
-  text-align: center;
-} */
-/* 
-#table-area th:first-child,
-#table-area th:nth-child(2),
-#table-area th:nth-child(6) {
-  min-width: 70px;
+.gamedata {
+  font-family: "Trebuchet MS", sans-serif;
 }
-
-.loader {
-  margin-top: 50px;
-}
-
-.margin-top-50 {
-  margin-top: 50px;
-} */

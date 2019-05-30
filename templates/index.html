@@ -15,17 +15,17 @@
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="don't move">
-        <a href="/" class="navbar-brand">Project 2</a>
+        <a href="/" class="navbar-brand">NFL Games</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarMenu">
+        <!-- <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a href="#" class="nav-link">Statistic Charts</a>
                 </li>
             </ul>
-        </div>
+        </div> -->
     </nav>
 
     <div class="container-fluid">
@@ -39,8 +39,8 @@
                                     <ul class="list-group" id="filters">
                                         <li class="filter list-group-item">
                                             <label for="column">Choose Team</label>
-                                            <select id="dataSet" onchange="optionChanged(this.value)"></select><br>
-                                            <p id="footballdata" class="panel-body"></p>
+                                            <select id="dataSet" onchange="optionChanged(this.value)"></select><hr>
+                                            <p id="gamedata" class="panel-body"></p>
                                             <button id="filter-btn" type="submit" class="btn btn-default">Filter Table</button>
                                             <button id="clear-btn" type="submit" class="btn btn-default">Clear Filter</button>
                                         </li>

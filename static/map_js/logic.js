@@ -29,23 +29,19 @@ L.control.layers(baseMaps, null, {
     collapsed: false
 }).addTo(myMap);
 
-// Add events to map
-function addEvents(event) {
-    L.LayerGroup(events).addTo(myMap);
-}
+var eventLayer = new L.LayerGroup();
 
 // If selector changes, add new events
 window.addEventListener('storage', function (object) {
+    eventLayer.clearLayers();
+
     var team = object.newValue;
 
     url = `/games/` + `${team}`;
 
     var eventMarker = [];
-    var eventLayer = new L.layerGroup();
 
     d3.json(url, function (data) {
-        eventLayer.clearLayers();
-
         var events = data;
 
         var footballMarker = L.ExtraMarkers.icon({
@@ -63,10 +59,9 @@ window.addEventListener('storage', function (object) {
 
             eventMarker.push(new L.marker([lat, lng], { icon: footballMarker })
                 .bindPopup("<h2 align='center'>Game " + parseInt(i + 1) + "<h2><hr><h3>" + event.Event + "<h3>"));
-        }
 
-        console.log(eventMarker);
-        eventLayer.addLayer(eventMarker);
+            eventLayer.addLayer(eventMarker[i]);
+        }
     });
 
     eventLayer.addTo(myMap);

@@ -67,6 +67,30 @@ def game(team):
 
     return jsonify(event_list)
 
+@app.route("/prices/<team>")
+def price(team):
+    sel = [
+        Games.title,
+        Pricing.pricing_low,
+        Pricing.pricing_med,
+        Pricing.pricing_high,
+    ]
+
+    table = db.session.query(*sel).\
+        join(Pricing, Games.game_id == Pricing.pricing_id).\
+        filter(or_(Games.team1 == team, Games.team2 == team)).all()
+
+    event_pricing = []
+    for results in table:
+        events = {}
+        events["Event"] = results[0]
+        events["Low_price"] = results[1]
+        events["Med_price"] = results[2]
+        events["High_price"] = results[3]
+        event_pricing.append(events)
+
+    return jsonify(event_pricing)
+
 @app.route("/map")
 def map():
     """Return the map."""
