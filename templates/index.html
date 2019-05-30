@@ -15,7 +15,10 @@
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="don't move">
-        <a href="/" class="navbar-brand">NFL Games</a>
+        <a href="/" class="navbar-brand">
+            <img class="nfl-logo" src="{{ url_for('static', filename='index_images/nfl_logo.png') }}">
+            NFL Games
+        </a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,7 +44,7 @@
                                             <label for="column">Choose Team</label>
                                             <select id="dataSet" onchange="optionChanged(this.value)"></select><hr>
                                             <p id="gamedata"></p>
-                                            <button id="clear-btn" type="submit" class="btn btn-default">Clear Filter</button>
+                                            <button id="refresh-btn" type="submit" class="btn btn-default">Restart Filter</button>
                                         </li>
                                     </ul>
                                 </div>
@@ -51,11 +54,11 @@
                 </aside>
             </div>
             <div class="col-lg-8">
-                <g>
+                <div class="group">
                     <div id="boxplot1"></div>
                     <div id="boxplot2"></div>
                     <div id="boxplot3"></div>
-                </g>
+                </div>
             </div>
         </div>
         

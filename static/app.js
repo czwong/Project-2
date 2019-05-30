@@ -34,18 +34,21 @@ function boxplot(team) {
         var trace1 = {
             x: low,
             type: 'box',
+            marker: { color: 'green' },
             name: 'Low Price'
         };
 
         var trace2 = {
             x: med,
             type: 'box',
+            marker: { color: 'yellow' },
             name: 'Med Price'
         };
 
         var trace3 = {
             x: high,
             type: 'box',
+            marker: { color: 'red' },
             name: 'High Price'
         };
 
@@ -63,7 +66,8 @@ function boxplot(team) {
             autosize: false,
             width: 700,
             height: 100,
-            plot_bgcolor: '#DCDCDC'
+            paper_bgcolor: '#F5F5F5',
+            plot_bgcolor: '#D3D3D3'
         };
 
         Plotly.newPlot('boxplot1', data1, layout)
@@ -76,7 +80,7 @@ function init() {
   // Grab a reference to the dropdown select element
   var selector = d3.select("#dataSet");
 
-  // Use the list of sample names to populate the select options
+  // Use the list of teams to populate the select options
   d3.json("/teams").then((team_list) => {
     team_list.forEach((team) => {
       selector
@@ -85,7 +89,7 @@ function init() {
         .property("value", team);
     });
 
-      // Use the first sample from the list to build the initial plots
+      // Use the first team from the list to build the initial plots
       const firstteam = team_list[0][0];
       footballdata(firstteam);
       boxplot(firstteam);
@@ -100,6 +104,10 @@ function optionChanged(newTeam) {
     footballdata(newTeam);
     boxplot(newTeam);
 }
+
+//d3.select('#refresh-btn').on("click", function () {
+        
+//})
 
 $('select').on('change', function () {
     var team = this.value;

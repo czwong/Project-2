@@ -4,7 +4,7 @@ body {
 }
 
 .filters {
-  margin-top: 5px;
+  margin-top: 15%;;
 }
 
 select {
@@ -30,8 +30,17 @@ select {
   font-family: "Trebuchet MS", sans-serif;
 }
 
-g {
+.group {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 10px;
+}
+
+.nfl-logo {
+  position: absolute;
+  height: auto;
+  width: 4%;
+  bottom: 6px;
+  left: 120px;
+  color: white;
 }
