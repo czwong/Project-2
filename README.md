@@ -34,9 +34,9 @@ User Interaction:* The event map will have toggles based on the event category.
 Three Visualization Views:* Event map and two charts that analyze price/popularity
 -------------------------------------------------------------------------------------------------------------------------------------------
 Content Repo
-- [db](db) contains [data.sqlite](data.sqlite) and [nfl_elt.py](nfl_elt.py)
-- [static](static) contains [img](img), [index_images](index_images), [map_css](map_css), [map_js](map_js), [app.js](app.js), [style.css](style.css)
-- [templates](templates) contains [index.html](index.html) and [map.html](map.html)
+- [db](db) contains data.sqlite and nfl_elt.py
+- [static](static) contains img, index_images, map_css, map_js, app.js, style.css
+- [templates](templates) contains index.html and map.html
 - [.gitignore](.gitignore)
 - [Procfile](Procfile)
 - [__init__.py](__init__.py)
