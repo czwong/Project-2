@@ -53,15 +53,15 @@ Procedures
 Step 1:
 - Make sure that you have updated the config.js file
 - Run
-...
-nfl_etl.py 
-...
+```
+nfl_etl.py
+``` 
 in the db folder
 Step 2:
 From the project folder, run:
-...
+```
 $ python app.py
-...
+```
 - once you run the app copy and paste "http://127.0.0.1:5000/" from your terminal and pasted it into your browser.
 
 
