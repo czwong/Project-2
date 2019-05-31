@@ -34,14 +34,14 @@ User Interaction:* The event map will have toggles based on the event category.
 Three Visualization Views:* Event map and two charts that analyze price/popularity
 -------------------------------------------------------------------------------------------------------------------------------------------
 Content Repo
-- db folder
-- static folder
-- templates
-- .gitignore
-- Procfile
-- __init__.py
-- app.py
-- requirements.txt
+- [db folder]
+- [static folder]
+- [templates]
+- [.gitignore]
+- [Procfile](Procfile)
+- [__init__.py](__init__.py)
+- [app.py](app.py)
+- [requirements.txt](requirements.txt)
 ----------------------------------------------------------------------------------------------------------------------------------------
 Before Starting 
 create an API key using this link https://developer.ticketmaster.com/products-and-docs/apis/getting-started/ .
