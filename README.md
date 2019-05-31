@@ -34,14 +34,14 @@ User Interaction:* The event map will have toggles based on the event category.
 Three Visualization Views:* Event map and two charts that analyze price/popularity
 -------------------------------------------------------------------------------------------------------------------------------------------
 Content Repo
-- [db](db) contains data.sqlite and nfl_elt.py
-- [static](static) contains img, index_images, map_css, map_js, app.js, style.css
-- [templates](templates) contains index.html and map.html
-- [.gitignore](.gitignore)
-- [Procfile](Procfile)
-- [__init__.py](__init__.py)
-- [app.py](app.py)
-- [requirements.txt](requirements.txt)
+- [`db`](db) contains data.sqlite and nfl_elt.py
+- [`static`](static) contains img, index_images, map_css, map_js, app.js, style.css
+- [`templates`](templates) contains index.html and map.html
+- [`.gitignore`](.gitignore)
+- [`Procfile`](Procfile)
+- [`__init__.py`](__init__.py)
+- [`app.py`](app.py)
+- [`requirements.txt`](requirements.txt)
 ----------------------------------------------------------------------------------------------------------------------------------------
 Before Starting 
 create an API key using this link https://developer.ticketmaster.com/products-and-docs/apis/getting-started/ .
@@ -52,10 +52,16 @@ You will need to install some module if you do not have them before running the 
 Procedures
 Step 1:
 - Make sure that you have updated the config.js file
-- Run nfl_etl.py in the db folder
+- Run
+...
+nfl_etl.py 
+...
+in the db folder
 Step 2:
 From the project folder, run:
+...
 $ python app.py
+...
 - once you run the app copy and paste "http://127.0.0.1:5000/" from your terminal and pasted it into your browser.
 
 
