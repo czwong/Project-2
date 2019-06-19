@@ -4,14 +4,7 @@ It project 2 time
 Ticketmaster api 
 https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
 -------------------------------------------------------------------------------------------------------------------------------------------
-
-Data Source:* Ticketmaster Developer API
-Database:* Mysqlite
-Project Category:* A combination of web scraping and Leaflet or Plotly
-JS Library We Haven't Used:* JQuery
-Data Set With 100+ Records:* We will pull data for at least 100 events.
-User Interaction:* The event map will have toggles based on the event category.
-Three Visualization Views:* Event map and two charts that analyze price/popularity
+Hello football fans, when it comes to tracking your favorite team it can get hectic. You go from page to page looking for when your team plays next. Isn't it exausting? well we made a page for you. When opening the page you'll see a dropdown menu clicking on the dropdown will show you a list of teams choose your favorite team and see the map come alive with you teams location, the price of tickets, and using the next game button will take you to the next game see if it is home or away. 
 -------------------------------------------------------------------------------------------------------------------------------------------
 Content Repo
 - [`db`](db) contains data.sqlite and nfl_elt.py
