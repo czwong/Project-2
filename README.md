@@ -10,7 +10,6 @@ Content Repo
 - [`db`](db) contains data.sqlite and nfl_elt.py
 - [`static`](static) contains img, index_images, map_css, map_js, app.js, style.css
 - [`templates`](templates) contains index.html and map.html
-- [`Procfile`](Procfile)
 - [`app.py`](app.py)
 - [`requirements.txt`](requirements.txt)
 ----------------------------------------------------------------------------------------------------------------------------------------
