@@ -1,4 +1,4 @@
-# Project-2
+# NFL Games/Tickets
 -------------------------------------------------------------------------------------------------------------------------------------------
 Ticketmaster api 
 https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
